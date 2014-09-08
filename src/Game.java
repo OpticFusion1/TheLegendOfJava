@@ -1,6 +1,7 @@
 import java.util.*;
 public class Game {
 
+
 	public static void main(String[] args){
 		///////////////////////////////////////////////////
 		// Starting the game and setting up the player
@@ -25,4 +26,5 @@ public class Game {
 			System.out.println("You didn't enter the right character, type E, M or H");
 		}
 	}
+
 }
