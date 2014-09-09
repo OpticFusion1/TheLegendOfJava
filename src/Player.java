@@ -7,7 +7,18 @@ public class Player {
 	String name;
 	byte health;
 	int score;
-	int damage;
+	int damageMax;
+	int damageMin;
+	
+	// Construktor
+	public Player(String name, byte health, int damageMax, int damageMin) {
+		this.name = name;
+		this.health = health;
+		this.score = 0;
+		this.damageMax = damageMax;
+		this.damageMin = damageMin;
+	}
+	
 	
 	//////////////////////////////
 	// Methods
