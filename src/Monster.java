@@ -18,17 +18,17 @@ public class Monster {
 			this.health = 20;
 			this.damageMax = 2;
 			this.damageMin = 1;
-			this.type = "Colos";
+			this.type = "Reheated Spinich Monster";
 		} else if (typeNum == 2) {
 			this.health = 15;
 			this.damageMax = 3;
 			this.damageMin = 1;
-			this.type = "Imp";
+			this.type = "Frghtening Fries";
 		} else if (typeNum == 3) {
 			this.health = 7;
 			this.damageMax = 5;
 			this.damageMin = 1;
-			this.type = "Ninja";
+			this.type = "Insane Potato";
 		}
 	}
 	
