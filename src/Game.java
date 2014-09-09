@@ -3,6 +3,7 @@ public class Game {
 
 
 	public static void main(String[] args){
+		
 		///////////////////////////////////////////////////
 		// Starting the game and setting up the player
 		///////////////////////////////////////////////////
@@ -40,9 +41,26 @@ public class Game {
 			}
 		
 		//Constructing player
-			Player Player1 = new Player(playerName, playerHealth, playerMaxDamage, playerMinDamage);
-			System.out.println("\nHello " + playerName + "! \nYou start you quest with a full health of " + playerHealth + "\nand an attack interval of " + playerMinDamage + " - " + playerMaxDamage + ".");
-			System.out.println("Good luck against the monsters. \nLet the legend of Java BEGIN!");
+		Player player1 = new Player(playerName, playerHealth, playerMaxDamage, playerMinDamage);
+		System.out.println("\nHello " + playerName + "! \nYou start you quest with a full health of " + playerHealth + "\nand an attack interval of " + playerMinDamage + " - " + playerMaxDamage + ".");
+		System.out.println("Good luck battleling the monsters. \nLet the legend of Java BEGIN!");
+	
+			
+		///////////////////////////////////////////////////
+		// The Game
+		///////////////////////////////////////////////////	
+		
+		// Introductory text
+		System.out.println("\n \nYou have entered the catacombs of the Java, the evil Math Monster");
+		System.out.println("On the first level of his catacombs you must defeat 5 monsters to continue on you quest");
+		
+		// First level
+		int randomType = (int)(Math.random() * (3-1) + 1);
+		Monster firstMonster = new Monster(randomType);
+		While (player1.getHealth() > 0 && firstMonster.getHealth() > 0) {
+			//Not done yet
+		}
+
 	}
 
 }

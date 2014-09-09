@@ -27,7 +27,8 @@ public class Player {
 		return 10 * time;
 	}
 	
-	//////////////////////////////
-	// Methods
-	//////////////////////////////
+	public int getHealth() {
+		return health;
+	}
+
 }
