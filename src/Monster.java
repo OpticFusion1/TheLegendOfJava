@@ -26,7 +26,7 @@ public class Monster {
 			this.type = "Frghtening Fries";
 		} else if (typeNum == 3) {
 			this.health = 7;
-			this.damageMax = 5;
+			this.damageMax = 4;
 			this.damageMin = 1;
 			this.type = "Insane Potato";
 		}
@@ -43,5 +43,8 @@ public class Monster {
 	}
 	public String getType() {
 		return type;
+	}
+	public void setHealth(int damage) {
+		health = health - damage;
 	}
 }

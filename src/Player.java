@@ -24,7 +24,15 @@ public class Player {
 	// Methods
 	//////////////////////////////
 	public int attack(int time) {
-		return 10 * time;
+		int attackNum = 0;
+		if (time < 30) {
+			attackNum = damageMax;
+		} else if (time < 60) {
+			attackNum = damageMax - 1;
+		} else if (time > 60) {
+			attackNum = damageMin;
+		} 
+		return attackNum;
 	}
 	
 	public int getHealth() {

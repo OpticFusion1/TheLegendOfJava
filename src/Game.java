@@ -25,12 +25,12 @@ public class Game {
 		}
 			if (difficultyLevel.equalsIgnoreCase("E")) {
 				playerHealth = 100;
-				playerMaxDamage = 8;
+				playerMaxDamage = 6;
 				playerMinDamage = 4;
 				System.out.println("You choose to play the game on easy mode");
 			} else if (difficultyLevel.equalsIgnoreCase("M")) {
 				playerHealth = 80;
-				playerMaxDamage = 6;
+				playerMaxDamage = 5;
 				playerMinDamage = 3;
 				System.out.println("You choose to play the game on medium mode");
 			} else if (difficultyLevel.equalsIgnoreCase("H")) {
@@ -55,10 +55,32 @@ public class Game {
 		System.out.println("On the first level of his catacombs you must defeat 5 monsters to continue on you quest");
 		
 		// First level
+		
+		// Match
 		int randomType = (int)(Math.random() * (3-1) + 1);
 		Monster firstMonster = new Monster(randomType);
-		While (player1.getHealth() > 0 && firstMonster.getHealth() > 0) {
-			//Not done yet
+		System.out.println("You have encountered a " + firstMonster.getType());
+		// Attack round
+		while (player1.getHealth() > 0 && firstMonster.getHealth() > 0) {
+			// Giving Equation and getting answer
+			int randomEq = (int)(Math.random() * (1-1) + 1);
+			Equations firstEq = new Equations(randomEq);
+			System.out.println("Solve the equation: " + firstEq.getEquation());
+			System.out.println(firstEq.getResult());
+			long timeStart = System.currentTimeMillis();
+			int answer = input.nextInt();
+			// If correct
+			if (answer == firstEq.getResult()) {
+				System.out.println("Correct you scored a hit");
+				long timeEnd = System.currentTimeMillis();
+				int timePassed = (int) (timeEnd - timeStart) / 1000;
+				int attackAmount = player1.attack(timePassed);
+				firstMonster.setHealth(attackAmount);
+			} else {
+				System.out.println("That was wrong, you missed");
+			}
+			// Monster attacks
+			
 		}
 
 	}
