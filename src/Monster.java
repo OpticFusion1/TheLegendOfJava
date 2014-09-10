@@ -16,17 +16,17 @@ public class Monster {
 	public Monster(int typeNum){
 		if (typeNum == 1){
 			this.health = 20;
-			this.damageMax = 2;
+			this.damageMax = 4;
 			this.damageMin = 1;
 			this.type = "Reheated Spinich Monster";
 		} else if (typeNum == 2) {
 			this.health = 15;
-			this.damageMax = 3;
+			this.damageMax = 5;
 			this.damageMin = 1;
 			this.type = "Frghtening Fries";
 		} else if (typeNum == 3) {
-			this.health = 7;
-			this.damageMax = 4;
+			this.health = 10;
+			this.damageMax = 6;
 			this.damageMin = 1;
 			this.type = "Insane Potato";
 		}

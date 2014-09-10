@@ -5,7 +5,8 @@ public class Equations {
 	int a = 0;
 	int b = 0;
 	int c = 0;
-	int result;
+	int intResult;
+	String result;
 	String equation;
 	
 	// Constructors
@@ -14,7 +15,8 @@ public class Equations {
 			a = (int)(Math.random() * (10-1) +1);
 			b = (int)(Math.random() * (10-1) +1);
 			c = (int)(Math.random() * (10-3) +3);
-			result = (a + b) * c;
+			intResult = (a + b) * c;
+			result = (""+intResult);
 			equation = "(" + a + " + " + b + ")" + " * " + c;
 		} else if (type == 2) {
 			
@@ -22,7 +24,7 @@ public class Equations {
 	}
 	
 	// Getters and Setters
-	public int getResult() {
+	public String getResult() {
 		return result;
 	}
 	

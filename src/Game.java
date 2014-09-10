@@ -60,51 +60,67 @@ public class Game {
 		// First level
 		
 		// Match
+		int firstCount = 0;
+		while (firstCount < 5) {
 		int randomType = (int)(Math.random() * (3-1) + 1);
 		Monster firstMonster = new Monster(randomType);
 		System.out.println("You have encountered a " + firstMonster.getType());
 		// Attack round
-		while (player1.getHealth() > 0 && firstMonster.getHealth() > 0) {
-			System.out.println("Your Health is: " + player1.getHealth() + ", and the Monsters health is:" + firstMonster.getHealth());
-			System.out.println("Press any key and then enter to attack");
-			String temp2 = input.next();
-			// Giving Equation and getting answer
-			int randomEq = (int)(Math.random() * (1-1) + 1);
-			Equations firstEq = new Equations(randomEq);
-			System.out.println("Solve the equation: " + firstEq.getEquation());
-			System.out.println(firstEq.getResult());
-			long timeStart = System.currentTimeMillis();
-			int answer = input.nextInt();
-			// If correct
-			if (answer == firstEq.getResult()) {				
-				long timeEnd = System.currentTimeMillis();
-				int timePassed = (int) (timeEnd - timeStart) / 1000;
-				int attackAmount = player1.attack(timePassed);
-				firstMonster.setHealth(attackAmount);
-				System.out.println("Correct you scored a hit of " + attackAmount + "\n");
-			} else {
-				System.out.println("That was wrong, you missed");
-			}
-			// Monster attacks
-			int mAttackAmount = 0;
-			if (answer == firstEq.getResult()) {
-				int monsterAttack = (int)(Math.random() * (2-1) + 1);
-				if (monsterAttack == 1) {
-					mAttackAmount = firstMonster.attack();
-					player1.setHealth(mAttackAmount);
-					System.out.println("The " + firstMonster.getType() + " attacked you with " + mAttackAmount);
-				} else {
-					System.out.println("The " + firstMonster.getType() + " missed");
-				}
+			while (player1.getHealth() > 0 && firstMonster.getHealth() > 0) {
+				System.out.println("Your Health is: " + player1.getHealth() + ", and the Monsters health is: " + firstMonster.getHealth());
+				System.out.println("Press any key and then enter to attack");
+				String temp2 = input.next();
+				// Giving Equation and getting answer
+				int randomEq = (int)(Math.random() * (1-1) + 1);
+				Equations firstEq = new Equations(randomEq);
+				System.out.println("Solve the equation: " + firstEq.getEquation());
+				System.out.println(firstEq.getResult());
+				long timeStart = System.currentTimeMillis();
+				String	answer = input.next();
+					
 				
+				// If correct
+				if (answer.equalsIgnoreCase(firstEq.getResult())) {				
+					long timeEnd = System.currentTimeMillis();
+					int timePassed = (int) (timeEnd - timeStart) / 1000;
+					int attackAmount = player1.attack(timePassed);
+					firstMonster.setHealth(attackAmount);
+					System.out.println("Correct you scored a hit of " + attackAmount + "\n");
+				} else {
+					System.out.println("That was wrong, you missed\n");
+				}
+				// Monster attacks
+				if (firstMonster.getHealth() > 0){	
+					int mAttackAmount = 0;
+					if (answer.equalsIgnoreCase(firstEq.getResult()) ) {
+						int monsterAttack = (int)(Math.random() * (2-1) + 1);
+						if (monsterAttack == 1) {
+							mAttackAmount = firstMonster.attack();
+							player1.setHealth(mAttackAmount);
+							System.out.println("The " + firstMonster.getType() + " attacked you with " + mAttackAmount);
+						} else {
+							System.out.println("The " + firstMonster.getType() + " missed");
+						}
+				
+					} else {
+						mAttackAmount = firstMonster.attack();
+						player1.setHealth(mAttackAmount);
+						System.out.println("The " + firstMonster.getType() + " attacked you with " + mAttackAmount);
+					}
+				} 
+			}
+			if (player1.getHealth() > 0) {
+				System.out.println("\nThe Monster has been defeted! Well Done!\n");
+				firstCount ++;
+				System.out.println("You have defeated " + firstCount + " monsters on this level\n \n");
 			} else {
-				mAttackAmount = firstMonster.attack();
-				player1.setHealth(mAttackAmount);
-				System.out.println("The " + firstMonster.getType() + " attacked you with " + mAttackAmount);
+				System.out.println("\nYou were Killed by the Monster!!\n\nGame Over..");
+				System.exit(0);
 			}
 			
 		}
-		System.out.println("\nThe Monster has been defeted! Well Done!\n");
+		// First level Boss
+		System.out.println("You have deafeated 5 Monsters and have reached the final rooms of the first level");
+		System.out.println("A Giant Evil Joint appears");
 	}
-
 }
