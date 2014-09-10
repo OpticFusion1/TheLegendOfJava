@@ -5,7 +5,7 @@ public class Player {
 	// Instance variables
 	//////////////////////////////
 	String name;
-	byte health;
+	int health;
 	int score;
 	int damageMax;
 	int damageMin;
@@ -37,6 +37,9 @@ public class Player {
 	
 	public int getHealth() {
 		return health;
+	}
+	public void setHealth(int damage) {
+		health = health - damage; 
 	}
 
 }
